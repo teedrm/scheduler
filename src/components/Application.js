@@ -85,6 +85,7 @@ export default function Application(props) {
         {Object.values(appointments).map((appointment) => (
           <Appointment key={appointment.id} {...appointment} />
         ))}
+        <Appointment key="last" time="5pm" />
       </section>
     </main>
   );
