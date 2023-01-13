@@ -15,6 +15,7 @@ export default function Application(props) {
   //Add the line below:
   const dailyAppointments = getAppointmentsForDay(state, state.day);
 
+
   const setDay = (day) => setState({ ...state, day });
 
   useEffect(() => {

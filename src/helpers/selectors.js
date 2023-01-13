@@ -1,5 +1,5 @@
 export function getAppointmentsForDay(state, day) {
-  //find the correct first matching day
+
   const findCorrectDay = state.days.find(
     (currentDay) => currentDay.name === day
   );
@@ -11,3 +11,5 @@ export function getAppointmentsForDay(state, day) {
   }
   return findCorrectDay.appointments.map((id) => state.appointments[id]);
 }
+
+
