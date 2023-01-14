@@ -2,8 +2,8 @@ import React from "react";
 import InterviewerListItem from "components/InterviewerListItem";
 import "components/InterviewerList.scss";
 
-export default function DayListItem(props) {
-  const interviewersArray = props.interviewers.map((interviewer) => {
+export default function InterviewerList(props) {
+  const interviewersArray = props.interviewers?.map((interviewer) => {
     return (
       <InterviewerListItem
         key={interviewer.id}
