@@ -13,7 +13,6 @@ export default function Application(props) {
     interviewers: {},
   });
 
-  //Add the line below:
   const dailyAppointments = getAppointmentsForDay(state, state.day);
   const setDay = (day) => setState({ ...state, day });
 
@@ -63,6 +62,7 @@ export default function Application(props) {
       </section>
       <section className="schedule">
         {schedule}
+        <Appointment key="last" time="5pm" />
       </section>
     </main>
   );
