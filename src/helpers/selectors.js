@@ -2,13 +2,18 @@ export function getAppointmentsForDay(state, day) {
   const findCorrectDay = state.days.find(
     (currentDay) => currentDay.name === day
   );
+  console.log(findCorrectDay)
   if (!findCorrectDay) {
     return [];
   }
   if (!findCorrectDay.appointments) {
     return [];
   }
-  return findCorrectDay.appointments.map((id) => state.appointments[id]);
+  const appointmentsArray = findCorrectDay.appointments;
+  console.log(appointmentsArray)
+  return appointmentsArray.map(
+    (appointment) => state.appointments[appointment]
+  );
 }
 
 export function getInterview(state, interview) {
@@ -23,3 +28,18 @@ export function getInterview(state, interview) {
   };
 }
 
+export function getInterviewersForDay(state, day) {
+  const findCorrectDay = state.days.find(
+    (currentDay) => currentDay.name === day
+  );
+  if (!findCorrectDay) {
+    return [];
+  }
+  if (!findCorrectDay.appointments) {
+    return [];
+  }
+  const interviewerArray = findCorrectDay.interviewers;
+  return interviewerArray.map(
+    (interviewer) => state.interviewers[interviewer]
+  );
+}
