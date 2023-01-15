@@ -1,8 +1,9 @@
 export function getAppointmentsForDay(state, day) {
+  // find the matching day that from mock data to match passed-in day
   const findCorrectDay = state.days.find(
     (currentDay) => currentDay.name === day
   );
-  console.log(findCorrectDay)
+  console.log("fday",findCorrectDay)
   if (!findCorrectDay) {
     return [];
   }
@@ -10,9 +11,9 @@ export function getAppointmentsForDay(state, day) {
     return [];
   }
   const appointmentsArray = findCorrectDay.appointments;
-  console.log(appointmentsArray)
+  console.log("apt",appointmentsArray)
   return appointmentsArray.map(
-    (appointment) => state.appointments[appointment]
+    (appointmentID) => state.appointments[appointmentID]
   );
 }
 
@@ -40,6 +41,6 @@ export function getInterviewersForDay(state, day) {
   }
   const interviewerArray = findCorrectDay.interviewers;
   return interviewerArray.map(
-    (interviewer) => state.interviewers[interviewer]
+    (interviewerID) => state.interviewers[interviewerID]
   );
 }
