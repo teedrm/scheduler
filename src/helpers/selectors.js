@@ -3,15 +3,13 @@ export function getAppointmentsForDay(state, day) {
   const findCorrectDay = state.days.find(
     (currentDay) => currentDay.name === day
   );
-  console.log("fday",findCorrectDay)
-  if (!findCorrectDay) {
+
+  if (!findCorrectDay || !findCorrectDay.appointments) {
     return [];
   }
-  if (!findCorrectDay.appointments) {
-    return [];
-  }
+
   const appointmentsArray = findCorrectDay.appointments;
-  console.log("apt",appointmentsArray)
+
   return appointmentsArray.map(
     (appointmentID) => state.appointments[appointmentID]
   );
@@ -33,14 +31,16 @@ export function getInterviewersForDay(state, day) {
   const findCorrectDay = state.days.find(
     (currentDay) => currentDay.name === day
   );
-  if (!findCorrectDay) {
+  console.log(findCorrectDay)
+  if (!findCorrectDay || !findCorrectDay.appointments) {
     return [];
   }
-  if (!findCorrectDay.appointments) {
-    return [];
-  }
+
   const interviewerArray = findCorrectDay.interviewers;
+  console.log(interviewerArray)
+  console.log(state.interviewers)
   return interviewerArray.map(
     (interviewerID) => state.interviewers[interviewerID]
   );
+  
 }
