@@ -37,13 +37,13 @@ export default function Appointment(props) {
       .catch((error) => transition(ERROR_SAVE, true));
   }
 
-  function remove() {
+  function cancel(event) {
     transition(DELETING, true);
     props
-      .cancelInterview(props.id)
-      .then(() => transition(EMPTY))
-      .catch((error) => transition(ERROR_DELETE, true));
-  }
+     .cancelInterview(props.id)
+     .then(() => transition(EMPTY, true))
+     .catch(error => transition(ERROR_DELETE, true));
+   }
 
   function edit() {
     transition(EDIT);
@@ -75,7 +75,7 @@ export default function Appointment(props) {
       {mode === CONFIRM && (
         <Confirm
           onCancel={back}
-          onConfirm={remove}
+          onConfirm={cancel}
           message="Are you sure you would like to delete?"
         />
       )}
