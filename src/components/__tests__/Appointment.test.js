@@ -11,11 +11,9 @@ it("renders without crashing", () => {
 });
 
 describe("Appointment", () => {
-    it("renders without crashing", () => {
-        render(<Appointment />);
-    });
-});
 
-//it declares test
-//test can be used in place of it
- 
+  it("renders without crashing", () => {
+    render(<Appointment />);
+  });
+
+});

@@ -40,22 +40,24 @@ export default function Appointment(props) {
   function cancel(event) {
     transition(DELETING, true);
     props
-     .cancelInterview(props.id)
-     .then(() => transition(EMPTY, true))
-     .catch(error => transition(ERROR_DELETE, true));
-   }
+      .cancelInterview(props.id)
+      .then(() => transition(EMPTY, true))
+      .catch(error => transition(ERROR_DELETE, true));
+  }
 
   function edit() {
     transition(EDIT);
   }
 
   return (
-    <article className="appointment">
+    <article className="appointment"
+      data-testid="appointment"
+    >
       <Header time={props.time} />
       {mode === EMPTY && <Empty onAdd={() => transition(CREATE)} />}
       {mode === SHOW && (
         <Show
-          student={props.interview? props.interview.student : undefined}
+          student={props.interview ? props.interview.student : undefined}
           interviewer={props.interview?.interviewer}
           onDelete={() => transition(CONFIRM)}
           onEdit={edit}
