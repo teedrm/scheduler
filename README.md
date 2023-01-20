@@ -1,3 +1,5 @@
+# Finaly Product 
+!["Demo a few features of the schedule app"]("https://github.com/teedrm/scheduler/blob/master/docs/scheduler.gif")
 # Interview Scheduler
 
 ## Setup
